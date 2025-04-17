@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Heart, Search, ExternalLink, ShoppingBag } from "lucide-react"
+import { Heart, Search, ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -17,6 +17,7 @@ interface Product {
   price: string
   image: string
   collection: string
+  description: string
   category: string
   featured?: boolean
 }
@@ -29,11 +30,11 @@ interface ProductCardProps {
 export function ProductCard({ product, showOptionsButton = false }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [showOptionsModal, setShowOptionsModal] = useState(false)
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false)
   const router = useRouter()
   const { toast } = useToast()
 
   const handleAddToWishlist = () => {
-    // Get current wishlist
     const storedWishlist = localStorage.getItem("wishlist")
     let wishlist: Product[] = []
 
@@ -45,13 +46,10 @@ export function ProductCard({ product, showOptionsButton = false }: ProductCardP
       }
     }
 
-    // Check if product already in wishlist
     if (!wishlist.some((item) => item.id === product.id)) {
-      // Add to wishlist
       wishlist.push(product)
       localStorage.setItem("wishlist", JSON.stringify(wishlist))
 
-      // Show toast
       toast({
         title: "Added to Wishlist",
         description: `${product.name} has been added to your wishlist.`,
@@ -66,6 +64,10 @@ export function ProductCard({ product, showOptionsButton = false }: ProductCardP
 
   const handleQuickView = () => {
     router.push(`/product/${product.id}`)
+  }
+
+  const toggleDescription = () => {
+    setIsDescriptionExpanded(!isDescriptionExpanded)
   }
 
   return (
@@ -108,16 +110,6 @@ export function ProductCard({ product, showOptionsButton = false }: ProductCardP
               <Heart className="h-4 w-4" />
               <span className="sr-only">Add to wishlist</span>
             </Button>
-            {/* <Link href={`/product/${product.id}`}>
-              <Button
-                variant="secondary"
-                size="icon"
-                className="h-9 w-9 rounded-full bg-white/80 text-foreground shadow-sm backdrop-blur-sm hover:bg-white"
-              >
-                <ExternalLink className="h-4 w-4" />
-                <span className="sr-only">View details</span>
-              </Button>
-            </Link> */}
           </div>
           {product.featured && (
             <Badge className="absolute left-3 top-3" variant="secondary">
@@ -125,13 +117,37 @@ export function ProductCard({ product, showOptionsButton = false }: ProductCardP
             </Badge>
           )}
         </div>
+
         <CardContent className="p-4">
           <Link href={`/product/${product.id}`}>
-            <h3 className="text-center text-lg font-medium transition-colors hover:text-primary">{product.name}</h3>
+            <h3 className="text-center text-lg font-medium transition-colors hover:text-primary">
+              {product.name}
+            </h3>
           </Link>
-          <div className="mt-1 text-center text-sm text-muted-foreground">{product.category}</div>
+
+          <div className="mt-1 text-center text-sm text-muted-foreground">
+            {product.category}
+          </div>
+
           <div className="mt-2 text-center font-medium">{product.price}</div>
+
+          {/* Styled Description */}
+          {product.description && product.description.trim().length > 0 && (
+            <div className="mt-2 text-center text-sm text-muted-foreground italic leading-snug">
+              <div className={isDescriptionExpanded ? '' : 'line-clamp-3'}>
+                {product.description}
+              </div>
+
+              <button
+                onClick={toggleDescription}
+                className="text-primary mt-2"
+              >
+                {isDescriptionExpanded ? 'Read less' : 'Read more'}
+              </button>
+            </div>
+          )}
         </CardContent>
+
         <CardFooter className="flex flex-col gap-2 p-2">
           <div className="text-center text-xs text-muted-foreground">{product.collection}</div>
           {showOptionsButton ? (
@@ -148,7 +164,11 @@ export function ProductCard({ product, showOptionsButton = false }: ProductCardP
       </Card>
 
       {showOptionsModal && (
-        <ProductOptionsModal product={product} isOpen={showOptionsModal} onClose={() => setShowOptionsModal(false)} />
+        <ProductOptionsModal
+          product={product}
+          isOpen={showOptionsModal}
+          onClose={() => setShowOptionsModal(false)}
+        />
       )}
     </>
   )

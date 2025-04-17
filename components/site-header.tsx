@@ -7,6 +7,7 @@ import { Search, ShoppingBag, Heart, User, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { supabase } from "@/lib/supabase"
 
 export function SiteHeader() {
@@ -30,7 +31,6 @@ export function SiteHeader() {
 
     checkAuth()
 
-    // Listen for auth changes
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
       setIsLoggedIn(!!session)
       setUser(session?.user || null)
@@ -54,13 +54,8 @@ export function SiteHeader() {
       }
     }
 
-    // Initial update
     updateCounts()
-
-    // Update counts when storage changes
     window.addEventListener("storage", updateCounts)
-
-    // Custom event for cart/wishlist updates
     window.addEventListener("cartUpdated", updateCounts)
     window.addEventListener("wishlistUpdated", updateCounts)
 
@@ -76,16 +71,29 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center justify-between py-4">
         <div className="flex items-center gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="font-arabic text-3xl font-bold">زوعیل</span>
-            <span className="font-serif text-xs tracking-widest">Abayas</span>
+            <img src="/logo2.png" alt="SAHA Modest Wear Logo" className="h-10 w-auto" />
           </Link>
           <nav className="hidden gap-6 md:flex">
             <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
               HOME
             </Link>
-            <Link href="/collection" className="text-sm font-medium transition-colors hover:text-primary">
-              COLLECTION
-            </Link>
+
+            {/* COLLECTION DROPDOWN */}
+            <DropdownMenu>
+  <DropdownMenuTrigger className="text-sm font-medium transition-colors hover:text-primary">
+    COLLECTION
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="w-44 mt-2 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border border-border">
+    <DropdownMenuItem asChild>
+      <Link href="/collection">All Collection</Link>
+    </DropdownMenuItem>
+    <DropdownMenuItem asChild>
+      <Link href="/collection/best-sellers">Best Sellers</Link>
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+
+
             <Link href="/customize" className="text-sm font-medium transition-colors hover:text-primary">
               CUSTOMIZE
             </Link>
@@ -154,7 +162,10 @@ export function SiteHeader() {
                   Home
                 </Link>
                 <Link href="/collection" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                  Collection
+                  All Collection
+                </Link>
+                <Link href="/collection/best-sellers" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
+                  Best Sellers
                 </Link>
                 <Link href="/customize" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
                   Customize

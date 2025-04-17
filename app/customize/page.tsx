@@ -25,28 +25,34 @@ export default function CustomizePage() {
 
   const fabricOptions = [
     {
-      id: "premium-crepe",
-      name: "Premium Crepe",
+      id: "Premium Nida",
+      name: "Premium Nida",
       description: "Soft, elegant drape with matte finish",
       price: 0,
     },
     {
-      id: "nida-silk",
-      name: "Nida Silk",
+      id: "Nida",
+      name: "Nida",
       description: "Lightweight with subtle sheen",
       price: 800,
     },
     {
-      id: "japanese-crepe",
-      name: "Japanese Crepe",
+      id: "Laser nida",
+      name: "Laser nida",
       description: "Premium texture with excellent drape",
       price: 1200,
     },
     {
-      id: "linen",
-      name: "Premium Linen",
+      id: "Crepe",
+      name: "Crepe",
       description: "Breathable natural fiber",
       price: 1500,
+    },
+    {
+      id:"Georgette",
+      name: "Georgette",
+      description: "Breathable natural fiber",
+      price: 1500
     },
   ]
 
