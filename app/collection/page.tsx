@@ -46,112 +46,119 @@ export default function CollectionPage() {
   const products = [
     {
       id: 1,
-      name: "Nadine",
-      price: "₨ 22,250 – ₨ 24,750",
-      image: "/assets/1.jpg",
+      name: "Pom Pom",
+      price: "₨ 15,000",
+      description: `Includes Matching Scarf 
+ Material: Premium Nida
+
+A statement piece crafted from luxurious premium nida fabric, this black abaya features dramatic bell sleeves adorned with playful black and turquoise textured pom-pom detailing. The front is enhanced with structured pleated trimming, adding a refined touch to its flowy silhouette. Paired with a matching scarf, this abaya blends sophistication with a hint of fun — perfect for elevating your modest wear collection.`,
+      image: "/assets/13.jpg",
       collection: "Ramadan Collection'25",
       category: "Formals",
       featured: true,
     },
     {
       id: 2,
-      name: "Layla",
-      price: "₨ 24,250 – ₨ 29,750",
-      image: "/assets/7.jpg",
-      collection: "Ramadan Collection'25",
-      category: "Formals, Pret",
-      featured: true,
-    },
-    {
-      id: 3,
-      name: "Nazleen",
-      price: "₨ 31,750 – ₨ 34,250",
-      image: "/assets/10.jpg",
+      name: "Zarina",
+      price: "₨ 13,000",
+      description: `Includes Matching Scarf 
+ Available in 2 Colors 
+Material: Premium Fabric
+
+Gracefully designed with a blend of deep plum and black panels, the Zarina Abaya features delicate floral embroidery on the front, framed by soft beige piping for a striking contrast. The flared sleeves and sleek lines give it a modern, flowy silhouette that flatters all body types. Comes with a matching scarf for a complete, polished look. Ideal for both casual elegance and formal occasions.`,
+      image: "/assets/2.jpg",
       collection: "Ramadan Collection'25",
       category: "Formals",
       featured: true,
     },
     {
+      id: 3,
+      name: "Layla",
+      price: "₨ 11,500 – ₨ 14,000",
+      description: `Elevate your wardrobe with this elegant outerwear piece, crafted from luxurious Laser Nida fabric for a smooth and graceful drape. This design features intricate embroidered detailing and comes with a beautifully embroidered scarf for a complete and refined look. Perfect for both formal and casual settings.
+Details:
+	•	Material: Premium Laser Nida
+	•	Includes: Embroidered scarf
+	•	Optional: Can be customized with a plain scarf upon request
+`,
+      image: "/assets/27.jpeg",
+      collection: "Ramadan Collection'25",
+      category: "Formals, Pret",
+      featured: true,
+    },
+    {
       id: 4,
-      name: "Elanoor - B",
-      price: "₨ 14,750 – ₨ 16,750",
-      image: "/assets/13.jpg",
+      name: "Midnight Crimson ",
+      price: "₨ 10,000",
+      description: `Elevate your style with our Midnight Crimson Abaya, featuring a sleek button-down front and striking red cuffs embellished for a touch of sparkle. Tailored from premium Nida, it offers both comfort and a graceful drape. A matching scarf is included to complete your sophisticated look.`,
+      image: "/assets/Midnight Crimson.jpeg",
+      collection: "Ramadan Collection'25",
+      category: "Formals, Pret",
+      featured: true,
+    },
+    {
+      id: 5,
+      name: "Luna Vogue",
+      price: "₨ 9,000",
+      description:`Step out in style with our Luna Vogue Abaya a chic, coat-style design that blends modern structure with timeless elegance. Crafted from premium Nida, its clean lines and subtle detailing offer a refined silhouette, while the matching scarf adds a polished finish to any look.`,
+      image: "/assets/Luna Vogue.jpeg",
       collection: "Ramadan Collection'25",
       category: "Casuals",
       featured: true,
     },
     {
-      id: 5,
-      name: "Amara",
-      price: "₨ 18,500 – ₨ 21,000",
-      image: "/assets/17.jpg",
-      collection: "Premium Collection",
-      category: "Abayas",
-      featured: false,
-    },
-    {
       id: 6,
-      name: "Zahra",
-      price: "₨ 26,750 – ₨ 29,250",
-      image: "/assets/21.jpg",
+      name: "Mocha Bloom",
+      price: "₨ 14,000",
+      description:`Indulge in understated elegance with our Mocha Bloom Abaya, crafted from premium Nida in a rich chocolate hue. Delicate floral embroidery graces the cuffs and matching scarf, adding a subtle, feminine touch. Perfect for everyday wear or special occasions.`,
+      image: "/assets/Mocha Bloom.jpeg",
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
     },
     {
       id: 7,
-      name: "Samira",
-      price: "₨ 19,250 – ₨ 22,750",
-      image: "/assets/19.jpg",
-      collection: "Casual Collection",
-      category: "Jilbabs",
+      name: "Summer Linen",
+      price: "₨ 9,000",
+      description:`Stay cool and stylish with our Summer Linen Abaya, crafted from breathable linen in a versatile neutral hue. Its relaxed silhouette and subtle sleeve detailing make it perfect for warmer days, while the matching scarf completes your effortlessly chic look.`,
+      image: "/assets/Summer Linen.jpeg",
+      collection: "Premium Collection",
+      category: "Abayas",
       featured: false,
     },
     {
       id: 8,
-      name: "Hana",
-      price: "₨ 17,500 – ₨ 19,750",
-      image: "/assets/22.jpg",
-      collection: "Casual Collection",
+      name: "Zahra Bloom",
+      price: "₨ 12,500",
+      description:`Indulge in understated elegance with our Zahra Bloom Abaya, tailored from premium Nida in a lush, deep hue. Delicate pleated accents along the neckline and sleeves exude subtle sophistication, while the included scarf completes the look.`,
+      image: "/assets/Zahra Bloom.jpeg",
+      collection: "Premium Collection",
       category: "Abayas",
       featured: false,
     },
     {
       id: 9,
-      name: "Leila",
-      price: "₨ 28,250 – ₨ 32,750",
-      image: "/assets/23.jpg",
-      collection: "Formal Collection",
+      name: "Haya Luxe Abaya",
+      price: "₨ 12,000",
+      description:`Elegant, flowy abaya with delicate embroidery on the sleeves. Comes with a matching scarf for a complete modest look.
+      Includes: Scarf
+      Inner: Can be purchased separately`,
+      image: "/assets/Haya Luxe Abaya.jpeg",
+      collection: "Premium Collection",
       category: "Abayas",
       featured: false,
     },
     {
       id: 10,
-      name: "Noor",
-      price: "₨ 23,750 – ₨ 26,250",
-      image: "/assets/24.jpg",
-      collection: "Formal Collection",
-      category: "Abayas",
-      featured: false,
-    },
-    {
-      id: 11,
-      name: "Yasmin",
-      price: "₨ 20,250 – ₨ 23,750",
-      image: "/assets/25.jpg",
-      collection: "Ramadan Collection'25",
-      category: "Prayer Sets",
-      featured: false,
-    },
-    {
-      id: 12,
-      name: "Fatima",
-      price: "₨ 25,750 – ₨ 28,250",
-      image: "/assets/26.jpg",
+      name: "Mocha Belle Abaya",
+      price: "₨ 12,500",
+      description:`Elevate your everyday wardrobe with our chic double-breasted abaya in a warm, chocolate-brown hue. Crafted from a high-quality, breathable fabric, this design features wide lapels and metallic button accents for a contemporary twist on a classic silhouette. Its relaxed, flowing cut ensures all-day comfort and modest coverage, making it perfect for both casual outings and formal gatherings. Add neutral-toned accessories to complete the look and enjoy a versatile, timeless addition to your modest fashion collection.`,
+      image: "/assets/Mocha Belle Abaya.jpeg",
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
     },
+    
   ]
   return (
     <div className="container px-4 py-10 md:px-6 md:py-16">
@@ -200,9 +207,8 @@ export default function CollectionPage() {
       <div className="mt-6 grid gap-8 md:grid-cols-[280px_1fr] md:gap-12">
         {/* Filters Sidebar */}
         <div
-          className={`${
-            filterOpen ? "block" : "hidden"
-          } fixed inset-0 z-40 bg-background p-6 md:static md:block md:p-0`}
+          className={`${filterOpen ? "block" : "hidden"
+            } fixed inset-0 z-40 bg-background p-6 md:static md:block md:p-0`}
         >
           <div className="flex items-center justify-between border-b pb-4 md:hidden">
             <h2 className="text-lg font-semibold">Filters</h2>
