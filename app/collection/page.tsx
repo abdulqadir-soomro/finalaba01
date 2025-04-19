@@ -56,6 +56,7 @@ A statement piece crafted from luxurious premium nida fabric, this black abaya f
       collection: "Ramadan Collection'25",
       category: "Formals",
       featured: true,
+      scarfOrinner:true,
     },
     {
       id: 2,
@@ -70,6 +71,7 @@ Gracefully designed with a blend of deep plum and black panels, the Zarina Abaya
       collection: "Ramadan Collection'25",
       category: "Formals",
       featured: true,
+      scarfOrinner:true,
     },
     {
       id: 3,
@@ -85,6 +87,7 @@ Details:
       collection: "Ramadan Collection'25",
       category: "Formals, Pret",
       featured: true,
+      scarfOrinner:true,
     },
     {
       id: 4,
@@ -95,6 +98,7 @@ Details:
       collection: "Ramadan Collection'25",
       category: "Formals, Pret",
       featured: true,
+      scarfOrinner:true,
     },
     {
       id: 5,
@@ -105,6 +109,7 @@ Details:
       collection: "Ramadan Collection'25",
       category: "Casuals",
       featured: true,
+      scarfOrinner:true,
     },
     {
       id: 6,
@@ -115,6 +120,7 @@ Details:
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
+      scarfOrinner:true,
     },
     {
       id: 7,
@@ -125,6 +131,7 @@ Details:
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
+      scarfOrinner:true,
     },
     {
       id: 8,
@@ -135,6 +142,7 @@ Details:
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
+      scarfOrinner:true,
     },
     {
       id: 9,
@@ -147,6 +155,7 @@ Details:
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
+      scarfOrinner:true,
     },
     {
       id: 10,
@@ -157,6 +166,7 @@ Details:
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
+      scarfOrinner:true,
     },
     
   ]

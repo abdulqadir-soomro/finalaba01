@@ -20,6 +20,7 @@ interface Product {
   description: string
   category: string
   featured?: boolean
+  scarfOrinner: boolean
 }
 
 interface ProductCardProps {
@@ -88,9 +89,8 @@ export function ProductCard({ product, showOptionsButton = false }: ProductCardP
             }}
           />
           <div
-            className={`absolute inset-0 flex items-center justify-center gap-2 bg-black/10 transition-opacity duration-300 ${
-              isHovered ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 flex items-center justify-center gap-2 bg-black/10 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"
+              }`}
           >
             <Button
               variant="secondary"
@@ -150,14 +150,18 @@ export function ProductCard({ product, showOptionsButton = false }: ProductCardP
 
         <CardFooter className="flex flex-col gap-2 p-2">
           <div className="text-center text-xs text-muted-foreground">{product.collection}</div>
-          {showOptionsButton ? (
+          {product.scarfOrinner ? (
             <Button variant="outline" className="w-full rounded-xl" onClick={() => setShowOptionsModal(true)}>
               SELECT OPTIONS
             </Button>
           ) : (
-            <Button variant="outline" className="w-full rounded-xl" onClick={() => setShowOptionsModal(true)}>
+            <Button
+              variant="outline"
+              className="w-full rounded-xl"
+              onClick={() => router.push("/cart")}
+            >
               <ShoppingBag className="mr-2 h-4 w-4" />
-              ADD TO CART
+              Buy Now
             </Button>
           )}
         </CardFooter>
