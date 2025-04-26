@@ -154,9 +154,9 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
         "Hang to dry in shade",
       ],
       images: [
-        "/assets/29.jpg",
-        "/assets/20.jpg",
-        "/assets/21.jpg",
+        "/assets/29.jpeg",
+        "/assets/20.jpeg",
+        "/assets/21.jpeg",
         // "/assets/20.jpg",
       ],
     },
@@ -266,7 +266,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
         "Store hanging to prevent creases",
       ],
       images: [
-        "/assets/33.jpg",
+        "/assets/33.jpeg",
         // "/assets/34.jpg",
         // "/assets/35.jpg",
         // "/assets/36.jpg",
@@ -294,8 +294,8 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
         "Dry in shade",
       ],
       images: [
-        "/assets/30.jpg",
-        "/assets/31.jpg",
+        "/assets/30.jpeg",
+        "/assets/31.jpeg",
         // "/assets/39.jpg",
         // "/assets/40.jpg",
       ],
