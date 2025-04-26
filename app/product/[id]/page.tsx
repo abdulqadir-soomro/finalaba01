@@ -18,35 +18,292 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
   const { toast } = useToast()
 
   // Mock product data
-  const product = {
-    id: Number.parseInt(params.id),
-    name: "Nazleen",
-    price: "₨ 31,750 – ₨ 34,250",
-    basePrice: 31750,
-    description:
-      "The Nazleen Abaya is designed with luxury and elegance in mind. Featuring exquisite embroidery details and made from premium quality fabric, this abaya offers both style and comfort. Perfect for special occasions or everyday elegance.",
-    fabric: "Premium Japanese Crepe",
-    details: [
-      "Premium quality fabric",
-      "Hand-embroidered details",
-      "Comfortable fit",
-      "Elegant silhouette",
-      "Includes matching scarf (optional)",
-    ],
-    care: [
-      "Hand wash recommended",
-      "Gentle cycle machine wash possible",
-      "Do not bleach",
-      "Iron on low heat",
-      "Dry clean friendly",
-    ],
-    images: [
-      "/assets/1.jpg",
-      "/assets/2.jpg",
-      "/assets/3.jpg",
-      "/assets/4.jpg",
-    ],
-  }
+  // Mock product data based on the ID
+  const products = [
+    {
+      id: 1,
+      name: "Pom Pom",
+      price: "₨ 15,000",
+      basePrice: 15000,
+      description:
+        "Crafted from luxurious premium nida, this black abaya features dramatic bell sleeves with playful black and turquoise pom-pom detailing. Paired with a matching scarf, it offers a refined yet lively touch to your modest wear collection.",
+      details: [
+        "Premium quality fabric",
+        "Hand-embroidered details",
+        "Comfortable fit",
+        "Elegant silhouette",
+        "Includes matching scarf (optional)",
+      ],
+      care: [
+        "Hand wash recommended",
+        "Gentle cycle machine wash possible",
+        "Do not bleach",
+        "Iron on low heat",
+        "Dry clean friendly",
+      ],
+      images: [
+        "/assets/13.jpg",
+        "/assets/14.jpg",
+        "/assets/20.jpg",
+        "/assets/21.jpg",
+      ],
+    },
+    {
+      id: 2,
+      name: "zarina",
+      price: "₨ 13,500",
+      basePrice: 18500,
+      description:
+        "This elegant navy blue abaya features intricate gold-thread embroidery along the sleeves and hemline. Made with premium silk blend fabric that drapes beautifully, creating a sophisticated silhouette perfect for special occasions.",
+      details: [
+        "Luxurious silk blend fabric",
+        "Gold-thread embroidery",
+        "Front button closure",
+        "Flowing design",
+        "Modest yet contemporary style",
+      ],
+      care: [
+        "Dry clean only",
+        "Store hanging",
+        "Avoid direct sunlight",
+        "Do not bleach",
+        "Iron on medium heat",
+      ],
+      images: [
+        "/assets/1.jpg",
+        "/assets/2.jpg",
+        "/assets/3.jpg",
+        "/assets/4.jpg",
+      ],
+    },
+    {
+      id: 3,
+      name: "Layla",
+      price: "₨ 12,000",
+      basePrice: 12000,
+      description:
+        "A minimalist abaya in soft gray crepe fabric, featuring subtle pearl accents on the cuffs. The streamlined design offers everyday elegance with a modern touch, perfect for both casual and formal settings.",
+      details: [
+        "Premium Japanese crepe fabric",
+        "Pearl embellishments",
+        "Concealed button closure",
+        "Side pockets",
+        "Versatile design for everyday wear",
+      ],
+      care: [
+        "Machine wash on delicate cycle",
+        "Wash with similar colors",
+        "Tumble dry low heat",
+        "Cool iron if needed",
+        "Do not bleach",
+      ],
+      images: [
+        "/assets/16.jpg",
+        "/assets/15.jpg",
+        "/assets/27.jpg",
+        "/assets/19.jpg",
+      ],
+    },
+    {
+      id: 4,
+      name: "Midnight Crimson",
+      price: "₨ 10,000",
+      basePrice: 10000,
+      description:
+        "A statement piece featuring emerald green nida fabric with delicate lace overlay on the sleeves. The flowing A-line silhouette creates movement with every step, while the contrasting black piping adds definition.",
+      details: [
+        "Premium nida fabric",
+        "French lace overlay",
+        "Contrast piping detail",
+        "A-line silhouette",
+        "Hidden magnetic closures",
+      ],
+      care: [
+        "Hand wash cold",
+        "Do not wring",
+        "Lay flat to dry",
+        "Iron on low heat",
+        "Dry clean for best results",
+      ],
+      images: [
+        "/assets/23.jpg",
+        "/assets/28.jpg",
+        // "/assets/15.jpg",
+        // "/assets/16.jpg",
+      ],
+    },
+    {
+      id: 5,
+      name: "Luna Vogue",
+      price: "₨ 9000",
+      basePrice: 16800,
+      description:
+        "This burgundy abaya combines modern styling with traditional craftsmanship, featuring hand-stitched geometric patterns and kimono-inspired sleeves. The premium crepe fabric ensures comfort while maintaining an elegant drape.",
+      details: [
+        "Hand-stitched geometric embroidery",
+        "Kimono-style sleeves",
+        "Premium crepe fabric",
+        "Includes matching belt",
+        "Side slits for ease of movement",
+      ],
+      care: [
+        "Gentle hand wash",
+        "Mild detergent only",
+        "Do not twist or wring",
+        "Iron on medium heat",
+        "Hang to dry in shade",
+      ],
+      images: [
+        "/assets/29.jpg",
+        "/assets/20.jpg",
+        "/assets/21.jpg",
+        // "/assets/20.jpg",
+      ],
+    },
+    {
+      id: 6,
+      name: "Mocha Bloom",
+      price: "₨ 14,000",
+      basePrice: 14000,
+      description:
+        "A contemporary open-front abaya in rich cobalt blue with cascading butterfly sleeves. Adorned with minimalist crystal embellishments along the front panels, this piece transitions effortlessly from day to evening wear.",
+      details: [
+        "Open-front design",
+        "Butterfly sleeves",
+        "Premium Korean nida fabric",
+        "Crystal embellishments",
+        "Includes matching inner slip dress",
+      ],
+      care: [
+        "Dry clean recommended",
+        "Remove embellishments before washing",
+        "Do not bleach or tumble dry",
+        "Iron on reverse side",
+        "Store on padded hanger",
+      ],
+      images: [
+        "/assets/26.jpg",
+        "/assets/30.jpg",
+        "/assets/31.jpg",
+        // "/assets/24.jpg",
+      ],
+    },
+    {
+      id: 7,
+      name: "Summer Linen",
+      price: "₨ 9000",
+      basePrice: 9000,
+      description:
+        "This dusty rose abaya features delicate pleating across the shoulders and a subtle high-low hem. Made from lightweight satin-touch crepe, it offers a flattering silhouette with an ethereal quality perfect for special occasions.",
+      details: [
+        "Satin-touch crepe fabric",
+        "Pleated shoulder detailing",
+        "High-low hem design",
+        "Hidden snap closures",
+        "Modest yet contemporary fit",
+      ],
+      care: [
+        "Cold hand wash only",
+        "Mild detergent",
+        "Do not soak",
+        "Hang to dry away from sunlight",
+        "Cool iron from inside",
+      ],
+      images: [
+        "/assets/25.jpg",
+        // "/assets/26.jpg",
+        // "/assets/27.jpg",
+        "/assets/32.jpg",
+      ],
+    },
+    {
+      id: 8,
+      name: "Zahra Bloom",
+      price: "₨ 12,500",
+      basePrice: 12500,
+      description:
+        "A luxurious occasion piece in deep plum silk-blend fabric, featuring intricate beadwork along the cuffs and collar. The tailored silhouette with subtle flare creates a regal presence perfect for formal gatherings.",
+      details: [
+        "Silk-blend fabric",
+        "Hand-applied beadwork",
+        "Satin-lined collar and cuffs",
+        "Tailored silhouette with flare",
+        "Includes matching embellished scarf",
+      ],
+      care: [
+        "Professional dry clean only",
+        "Store in garment bag",
+        "Avoid contact with perfumes and oils",
+        "Do not iron beadwork",
+        "Handle with care",
+      ],
+      images: [
+        "/assets/24.jpg",
+        // "/assets/30.jpg",
+        // "/assets/31.jpg",
+        // "/assets/32.jpg",
+      ],
+    },
+    {
+      id: 9,
+      name: "Haya Luxe",
+      price: "₨ 12,000",
+      basePrice: 12000,
+      description:
+        "This forest green abaya features architectural cape-style overlays and subtle metallic thread detailing. The structured shoulders and flowing silhouette create a contemporary statement while maintaining modest elegance.",
+      details: [
+        "Premium crepe fabric",
+        "Cape-style overlay",
+        "Metallic thread embroidery",
+        "Structured shoulders",
+        "Concealed front zipper",
+      ],
+      care: [
+        "Dry clean recommended",
+        "Hand wash with extreme care",
+        "Do not bleach",
+        "Iron on low heat",
+        "Store hanging to prevent creases",
+      ],
+      images: [
+        "/assets/33.jpg",
+        // "/assets/34.jpg",
+        // "/assets/35.jpg",
+        // "/assets/36.jpg",
+      ],
+    },
+    {
+      id: 10,
+      name: "Mocha Belle",
+      price: "₨ 12,500",
+      basePrice: 12500,
+      description:
+        "A blend of tradition and modernity, this ivory abaya features delicate cutwork embroidery and scalloped trim. Made from breathable cotton-blend fabric, it provides comfort while the pearl-accented sleeves add a touch of luxury.",
+      details: [
+        "Cotton-blend fabric",
+        "Cutwork embroidery",
+        "Pearl accents on sleeves",
+        "Scalloped hem and trim",
+        "Side pockets",
+      ],
+      care: [
+        "Gentle machine wash",
+        "Wash with similar colors",
+        "Do not bleach",
+        "Medium iron",
+        "Dry in shade",
+      ],
+      images: [
+        "/assets/30.jpg",
+        "/assets/31.jpg",
+        // "/assets/39.jpg",
+        // "/assets/40.jpg",
+      ],
+    },
+  ];
+  
+  // Find the product based on the ID from the URL
+  const product = products.find(p => p.id === Number.parseInt(params.id)) || products[0];
 
   const handleAddToCart = () => {
     toast({
@@ -100,9 +357,6 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
             <div className="mt-2 text-xl font-semibold">{product.price}</div>
             <div className="mt-1 text-sm text-muted-foreground">Including tax</div>
             <div className="mt-4">{product.description}</div>
-            <div className="mt-4 text-sm">
-              <span className="font-medium">Fabric:</span> {product.fabric}
-            </div>
           </div>
           <div className="mb-8 space-y-6">
             <div className="space-y-2">

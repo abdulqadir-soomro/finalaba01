@@ -318,9 +318,15 @@ Details:
             <p className="text-sm text-muted-foreground">Showing {products.length} products</p>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} showOptionsButton={true} />
-            ))}
+            {products
+              .filter((product) => 
+                searchQuery === "" || 
+                product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                product.description.toLowerCase().includes(searchQuery.toLowerCase())
+              )
+              .map((product) => (
+                <ProductCard key={product.id} product={product} showOptionsButton={true} />
+              ))}
           </div>
           <div className="mt-12 flex justify-center">
             {/* <Button variant="outline" className="rounded-xl">
