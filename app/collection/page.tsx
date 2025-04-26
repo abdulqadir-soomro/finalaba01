@@ -76,7 +76,7 @@ Gracefully designed with a blend of deep plum and black panels, the Zarina Abaya
     {
       id: 3,
       name: "Layla",
-      price: "₨ 11,500 – ₨ 14,000",
+      price: "₨ 12,000",
       description: `Elevate your wardrobe with this elegant outerwear piece, crafted from luxurious Laser Nida fabric for a smooth and graceful drape. This design features intricate embroidered detailing and comes with a beautifully embroidered scarf for a complete and refined look. Perfect for both formal and casual settings.
 Details:
 	•	Material: Premium Laser Nida
@@ -94,7 +94,7 @@ Details:
       name: "Midnight Crimson ",
       price: "₨ 10,000",
       description: `Elevate your style with our Midnight Crimson Abaya, featuring a sleek button-down front and striking red cuffs embellished for a touch of sparkle. Tailored from premium Nida, it offers both comfort and a graceful drape. A matching scarf is included to complete your sophisticated look.`,
-      image: "/assets/Midnight Crimson.jpeg",
+      image: "/assets/28.jpeg",
       collection: "Ramadan Collection'25",
       category: "Formals, Pret",
       featured: true,
@@ -105,7 +105,7 @@ Details:
       name: "Luna Vogue",
       price: "₨ 9,000",
       description:`Step out in style with our Luna Vogue Abaya a chic, coat-style design that blends modern structure with timeless elegance. Crafted from premium Nida, its clean lines and subtle detailing offer a refined silhouette, while the matching scarf adds a polished finish to any look.`,
-      image: "/assets/Luna Vogue.jpeg",
+      image: "/assets/29.jpeg",
       collection: "Ramadan Collection'25",
       category: "Casuals",
       featured: true,
@@ -116,7 +116,7 @@ Details:
       name: "Mocha Bloom",
       price: "₨ 14,000",
       description:`Indulge in understated elegance with our Mocha Bloom Abaya, crafted from premium Nida in a rich chocolate hue. Delicate floral embroidery graces the cuffs and matching scarf, adding a subtle, feminine touch. Perfect for everyday wear or special occasions.`,
-      image: "/assets/Mocha Bloom.jpeg",
+      image: "/assets/30.jpeg",
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
@@ -127,7 +127,7 @@ Details:
       name: "Summer Linen",
       price: "₨ 9,000",
       description:`Stay cool and stylish with our Summer Linen Abaya, crafted from breathable linen in a versatile neutral hue. Its relaxed silhouette and subtle sleeve detailing make it perfect for warmer days, while the matching scarf completes your effortlessly chic look.`,
-      image: "/assets/Summer Linen.jpeg",
+      image: "/assets/32.jpeg",
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
@@ -151,7 +151,7 @@ Details:
       description:`Elegant, flowy abaya with delicate embroidery on the sleeves. Comes with a matching scarf for a complete modest look.
       Includes: Scarf
       Inner: Can be purchased separately`,
-      image: "/assets/Haya Luxe Abaya.jpeg",
+      image: "/assets/33.jpeg",
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
@@ -162,7 +162,7 @@ Details:
       name: "Mocha Belle Abaya",
       price: "₨ 12,500",
       description:`Elevate your everyday wardrobe with our chic double-breasted abaya in a warm, chocolate-brown hue. Crafted from a high-quality, breathable fabric, this design features wide lapels and metallic button accents for a contemporary twist on a classic silhouette. Its relaxed, flowing cut ensures all-day comfort and modest coverage, making it perfect for both casual outings and formal gatherings. Add neutral-toned accessories to complete the look and enjoy a versatile, timeless addition to your modest fashion collection.`,
-      image: "/assets/Mocha Belle Abaya.jpeg",
+      image: "/assets/31.jpeg",
       collection: "Premium Collection",
       category: "Abayas",
       featured: false,
