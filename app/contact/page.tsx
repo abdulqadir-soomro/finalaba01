@@ -52,7 +52,7 @@ export default function ContactPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">Call us for customer support or inquiries</p>
-            <p className="mt-2 font-medium">+92 300-0603035</p>
+            <p className="mt-2 font-medium">+92 332 0272422</p>
             <p className="text-sm text-muted-foreground">Monday to Saturday, 10am to 6pm</p>
           </CardContent>
         </Card>
@@ -66,7 +66,7 @@ export default function ContactPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">Email us for general inquiries and collaboration</p>
-            <p className="mt-2 font-medium">info@zafaranelegance.com</p>
+            <p className="mt-2 font-medium">sahamodestwear@gmail.com</p>
             <p className="text-sm text-muted-foreground">We aim to respond within 24 hours</p>
           </CardContent>
         </Card>
@@ -80,8 +80,8 @@ export default function ContactPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">Visit our showroom to see our collection in person</p>
-            <p className="mt-2 font-medium">123 Fashion Street, Gulberg III</p>
-            <p className="text-sm text-muted-foreground">Lahore, Pakistan</p>
+            <p className="mt-2 font-medium">Khayab e Bukhari Phase 6,</p>
+            <p className="text-sm text-muted-foreground">Karachi, Pakistan</p>
           </CardContent>
         </Card>
 

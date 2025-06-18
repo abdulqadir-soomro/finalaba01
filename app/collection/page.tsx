@@ -16,13 +16,15 @@ export default function CollectionPage() {
   const [filterOpen, setFilterOpen] = useState(false)
   const [sortBy, setSortBy] = useState("featured")
   const [searchQuery, setSearchQuery] = useState("")
+  const [selectedCollections, setSelectedCollections] = useState<string[]>([])
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
 
   // Mock collection data
   const collections = [
     { id: "all", name: "All Collections", count: 24 },
-    // { id: "ramadan25", name: "Ramadan Collection'25", count: 12 },
+    { id: "ramadan25", name: "Ramadan Collection'25", count: 12 },
     { id: "premium", name: "Premium Collection", count: 8 },
-    { id: "casual", name: "Casual Collection", count: 6 },
+    // { id: "casual", name: "Casual Collection", count: 6 },
     // { id: "formal", name: "Formal Collection", count: 10 },
   ]
 
@@ -61,7 +63,7 @@ A statement piece crafted from luxurious premium nida fabric, this black abaya f
     {
       id: 2,
       name: "Zarina",
-      price: "₨ 13,000",
+      price: "₨ 13,500",
       description: `Includes Matching Scarf 
  Available in 2 Colors 
 Material: Premium Fabric
@@ -170,6 +172,104 @@ Details:
     },
     
   ]
+
+  // Add function to handle collection filter changes
+  const handleCollectionChange = (collectionId: string) => {
+    setSelectedCollections(prev => {
+      if (collectionId === "all") {
+        return prev.includes("all") ? [] : ["all"]
+      }
+      const newSelection = prev.filter(id => id !== "all")
+      if (prev.includes(collectionId)) {
+        return newSelection.filter(id => id !== collectionId)
+      }
+      return [...newSelection, collectionId]
+    })
+  }
+
+  // Add function to handle category filter changes
+  const handleCategoryChange = (categoryId: string) => {
+    setSelectedCategories(prev => {
+      if (categoryId === "all") {
+        return prev.includes("all") ? [] : ["all"]
+      }
+      const newSelection = prev.filter(id => id !== "all")
+      if (prev.includes(categoryId)) {
+        return newSelection.filter(id => id !== categoryId)
+      }
+      return [...newSelection, categoryId]
+    })
+  }
+
+  // Modify the getSortedProducts function to include filtering
+  const getFilteredAndSortedProducts = () => {
+    let filteredProducts = [...products];
+
+    // Apply collection filter
+    if (selectedCollections.length > 0 && !selectedCollections.includes("all")) {
+      filteredProducts = filteredProducts.filter(product => {
+        // Convert both the product collection and selected collection to lowercase for comparison
+        const productCollection = product.collection.toLowerCase().replace(/[']/g, ""); // Remove any special characters
+        return selectedCollections.some(selected => {
+          const selectedCollection = selected.toLowerCase();
+          // Handle special case for ramadan25
+          if (selectedCollection === "ramadan25") {
+            return productCollection.includes("ramadan collection25");
+          }
+          return productCollection.includes(selectedCollection);
+        });
+      });
+    }
+
+    // Apply category filter
+    if (selectedCategories.length > 0 && !selectedCategories.includes("all")) {
+      filteredProducts = filteredProducts.filter(product => 
+        selectedCategories.includes(product.category.toLowerCase())
+      );
+    }
+
+    // Apply search filter
+    if (searchQuery) {
+      filteredProducts = filteredProducts.filter(product => 
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Apply sorting
+    switch (sortBy) {
+      case "newest":
+        filteredProducts.sort((a, b) => b.id - a.id);
+        break;
+      case "price-low":
+        filteredProducts.sort((a, b) => {
+          const priceA = parseInt(a.price.replace(/[^0-9]/g, ''));
+          const priceB = parseInt(b.price.replace(/[^0-9]/g, ''));
+          return priceA - priceB;
+        });
+        break;
+      case "price-high":
+        filteredProducts.sort((a, b) => {
+          const priceA = parseInt(a.price.replace(/[^0-9]/g, ''));
+          const priceB = parseInt(b.price.replace(/[^0-9]/g, ''));
+          return priceB - priceA;
+        });
+        break;
+      case "name-asc":
+        filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "name-desc":
+        filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case "featured":
+      default:
+        filteredProducts.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+        break;
+    }
+
+    return filteredProducts;
+  };
+
   return (
     <div className="container px-4 py-10 md:px-6 md:py-16">
       <div className="mb-8">
@@ -235,7 +335,11 @@ Details:
                   <div className="space-y-2">
                     {collections.map((collection) => (
                       <div key={collection.id} className="flex items-center space-x-2">
-                        <Checkbox id={`collection-${collection.id}`} />
+                        <Checkbox 
+                          id={`collection-${collection.id}`}
+                          checked={selectedCollections.includes(collection.id)}
+                          onCheckedChange={() => handleCollectionChange(collection.id)}
+                        />
                         <Label
                           htmlFor={`collection-${collection.id}`}
                           className="flex w-full cursor-pointer justify-between text-sm"
@@ -255,7 +359,11 @@ Details:
                   <div className="space-y-2">
                     {categories.map((category) => (
                       <div key={category.id} className="flex items-center space-x-2">
-                        <Checkbox id={`category-${category.id}`} />
+                        <Checkbox 
+                          id={`category-${category.id}`}
+                          checked={selectedCategories.includes(category.id)}
+                          onCheckedChange={() => handleCategoryChange(category.id)}
+                        />
                         <Label
                           htmlFor={`category-${category.id}`}
                           className="flex w-full cursor-pointer justify-between text-sm"
@@ -318,15 +426,9 @@ Details:
             <p className="text-sm text-muted-foreground">Showing {products.length} products</p>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {products
-              .filter((product) => 
-                searchQuery === "" || 
-                product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                product.description.toLowerCase().includes(searchQuery.toLowerCase())
-              )
-              .map((product) => (
-                <ProductCard key={product.id} product={product} showOptionsButton={true} />
-              ))}
+            {getFilteredAndSortedProducts().map((product) => (
+              <ProductCard key={product.id} product={product} showOptionsButton={true} />
+            ))}
           </div>
           <div className="mt-12 flex justify-center">
             {/* <Button variant="outline" className="rounded-xl">

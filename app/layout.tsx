@@ -8,7 +8,7 @@ import { MobileNav } from "@/components/mobile-nav"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Zual Abayas - Premium Abayas",
+  title: "Saha Modest Wear - Premium Abayas",
   description: "Discover our collection of premium hand-crafted abayas with attention to detail and quality fabrics.",
     generator: 'Minhal Rizvi'
 }

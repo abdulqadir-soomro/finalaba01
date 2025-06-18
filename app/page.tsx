@@ -88,10 +88,10 @@ export default function Home() {
           </div>
           <div className="mt-10 border-t pt-6 text-center">
             <p className="text-sm text-muted-foreground">
-              For custom orders, DM us on Instagram @zualabayas or Whatsapp on 0300-0603035.
+              For custom orders, DM us on Instagram @zualabayas or Whatsapp on 0332 0272422.
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Zafaran Elegance. All rights reserved.
+              © {new Date().getFullYear()} Saha Modest Wear. All rights reserved.
             </p>
           </div>
         </div>
